@@ -43,43 +43,7 @@ function learnngWordPress_setup()
 }
 
 add_action('after_setup_theme', 'learnngWordPress_setup');
-/*
-------------------------
-function getStyle() {
-    wp_enqueue_style('style', get_stylesheet_uri());
-}
-add_action('wp_enqueue_scripts', 'getStyle');
-add_action( 'wp_enqueue_scripts', function () {
-    wp_enqueue_script( 'ajax-script', get_template_directory_uri() .  '/ajax-script.js', array('jquery') );
-    wp_localize_script(
-        'ajax-script',
-        'ajax_object',
-        array(
-            'ajax_url' => admin_url( 'admin-ajax.php' ),
-            'nonce' => wp_create_nonce( 'send_letter' )
-        )
-    );
-});
-add_action( 'wp_ajax_send_letter', 'send_letter' );
-add_action('wp_ajax_nopriv_send_letter', 'send_letter');
-function my_action() {
-    $nonce = $_POST['nonce'];
-    if ( !wp_verify_nonce( $nonce, 'send_letter' ) ) {
-        echo('Get out robot');
-    } else {
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $comments = $_POST['comments'];
-        $emailTo = get_option('admin_email');
-        $subject = 'Повідомлення з сайту від '.$name;
-        $body = "Імя: $name \n\nE-mail: $email \n\nПовідомлення: $comments";
-        $headers = 'From: '.$name.' <'.$email.'>' . "\r\n" . 'Reply-To: ' . $email;
-        wp_mail($emailTo, $subject, $body, $headers);
-        wp_die();
-    }
-}
---------------------------
-*/
+
 
 add_action('admin_enqueue_scripts', 'my_enqueue');
 function my_enqueue($hook)
